@@ -23,12 +23,22 @@ public class Console {
     return text;
   }
 
+  public static String println(final String prefix, final String format, final Object... args) {
+    final String text = buildPrefixedMessage(prefix, format, args);
+    console.println(text);
+    return text;
+  }
+
   public static String print(final String prefix, final String format, final Object... args) {
     return print(buildPrefixedMessage(prefix, format, args));
   }
 
   public static String replay(final String format, final Object... args) {
     return print(REPLAY_PREFIX, format, args);
+  }
+
+  public static String replayln(final String format, final Object... args) {
+    return println(REPLAY_PREFIX, format, args);
   }
 
   private static String buildPrefixedMessage(final String prefix, final String format,
